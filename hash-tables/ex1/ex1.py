@@ -15,16 +15,16 @@ def get_indices_of_item_weights(weights, length, limit):
         hash_table_insert(ht, weight, index)
         index += 1
 
+    # In reverse order of the weights list, find the matching value
     for x in range(length - 1, 0, -1):
-        print(f"x: {x} limit {limit} - weight {weights[x]}")
         diff = limit - weights[x]
-        print(f"Diff {diff}")
+
         if diff > 0:
             weightKey = hash_table_retrieve(ht, weights[x])
-            hayKey = hash_table_retrieve(ht, diff)
-            print(f"w: {weightKey} h: {hayKey}")
-            if weightKey is not None and hayKey is not None:
-                return(weightKey, hayKey)
+            searchKey = hash_table_retrieve(ht, diff)
+
+            if weightKey is not None and searchKey is not None:
+                return(weightKey, searchKey)
         
     return None
 
