@@ -8,35 +8,35 @@ Fill out truth tables for the following expressions:
 ```
 A     B     result
 -------------------
-0     0       ?
-0     1       ?
-1     0       ?
-1     1       ?
+0     0       1
+0     1       0
+1     0       1
+1     1       1
 ```
 
 2. `(¬A ∨ B) ∧ ¬(A ∧ ¬B)`   (alternate: `(!A || B) && !(A && !B)`)
 ```
-A     B     result
+A     B     result      not a or b    not(a and not b)
 -------------------
-0     0       ?
-0     1       ?
-1     0       ?
-1     1       ?
+0     0       1           1           !0 = 1
+0     1       1           1           !0 = 1
+1     0       0           0           !1 = 0
+1     1       1           1           !0 = 1
 ```
 
 3. `¬(A ∨ B) ∨ ( (A ∨ C) ∧ ¬(B ∨ ¬C) )`   (alternate: `!(A || B) || ( (A || C) && !(B || !C) )`)
-  * (Hint: Is it possible to calculate this using code?)
+  * (Hint: Is it possible to calculate this using code?) --- See proof.py
 ```
 A     B     C     result
 -------------------------
-0     0     0       ?
-0     0     1       ?
-0     1     0       ?
-0     1     1       ?
-1     0     0       ?
-1     0     1       ?
-1     1     0       ?
-1     1     1       ?
+0     0     0       1
+0     0     1       1
+0     1     0       0
+0     1     1       0
+1     0     0       0
+1     0     1       1
+1     1     0       0
+1     1     1       0
 ```
 
 ## STRETCH GOAL
@@ -64,14 +64,14 @@ How can you represent the SUM and CARRY of adding THREE digits with a truth tabl
 ```
 A     B     C      carry   sum
 --------------------------------
-0     0     0        ?      ?
-0     0     1        ?      ?
-0     1     0        ?      ?
-0     1     1        ?      ?
-1     0     0        ?      ?
-1     0     1        ?      ?
-1     1     0        ?      ?
-1     1     1        ?      ?
+0     0     0        0      0
+0     0     1        0      1
+0     1     0        0      1
+0     1     1        1      0
+1     0     0        ?      1
+1     0     1        1      0
+1     1     0        1      0
+1     1     1        1      1
 ```
 * SUM = ?
 * CARRY = ?

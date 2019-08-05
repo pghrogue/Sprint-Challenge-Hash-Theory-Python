@@ -8,11 +8,24 @@ from hashtables import (HashTable,
 
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
+    index = 0
 
-    """
-    YOUR CODE HERE
-    """
+    # Fill in the hash table
+    for weight in weights:    
+        hash_table_insert(ht, weight, index)
+        index += 1
 
+    # In reverse order of the weights list, find the matching value
+    for x in range(length - 1, 0, -1):
+        diff = limit - weights[x]
+
+        if diff > 0:
+            weightKey = hash_table_retrieve(ht, weights[x])
+            searchKey = hash_table_retrieve(ht, diff)
+
+            if weightKey is not None and searchKey is not None:
+                return(weightKey, searchKey)
+        
     return None
 
 
